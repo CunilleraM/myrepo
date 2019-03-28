@@ -1,0 +1,67 @@
+---
+title: "El solecito feliz"
+author: "author"
+date: "28 March 2019"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+csl: freshwater-biology.csl
+bibliography: My Collection.bib
+---
+
+__Nosaltres som la felicitat d'aquest món__ 
+
+## INTRODUCTION
+
+The thinks in this world are unknown and incredible [@Cunillera-Montcusi2019]
+
+## METHODS
+
+```{r, echo=F}
+datos <- read.table(file ="data.txt", header=TRUE)
+
+```
+
+```{r, echo=F}
+modelo<-lm(happiness~ sunshine, data=datos)
+```
+
+We nterviewed `r nrow(datos)` people and fitted a linear model. 
+
+## RESULTS
+
+
+
+We found that hapiness is positively related to sunshine hours (`r round(x=coef(modelo)[2], digits=2)`). 
+
+```{r, echo=T, include=T, echo=F}
+library(visreg)
+library(remedy)
+library(ggplot2)
+library(tinytex)
+
+a <- visreg(modelo, gg=T)+scale_color_manual( )+
+  theme_classic()
+a
+
+```
+
+We used this equation to build what we prepared here
+
+$$
+y= a +bx
+$$
+_pene_
+
+![]()
+
+```{r, echo=FALSE}
+library(knitr)
+library(xtable)
+
+kable(xtable(modelo),digits = 3 )
+
+```
+

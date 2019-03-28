@@ -21,7 +21,7 @@ The thinks in this world are unknown and incredible [@Cunillera-Montcusi2019]
 
 ```{r, echo=F}
 datos <- read.table(file ="data.txt", header=TRUE)
-datos <- datos[-c(12,36),]
+datos <- datos[-c(12,36, 57),]
 
 ```
 
